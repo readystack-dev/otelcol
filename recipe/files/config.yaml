@@ -1,0 +1,75 @@
+# ReadyStack OpenTelemetry Collector (core distribution) configuration.
+# The image's default command is `otelcol --config /etc/otelcol/config.yaml`.
+#
+# Differences from upstream's distributions/otelcol/config.yaml (the file upstream bakes
+# into its own otel/opentelemetry-collector image):
+#   - zpages (55679) and pprof (1777) listen on the container's loopback only, not on
+#     0.0.0.0: both are unauthenticated diagnostic endpoints.
+#   - Only the OTLP receiver is enabled. The Jaeger, Zipkin, Prometheus, Kafka and
+#     host-metrics receivers are still in the binary (`otelcol components`); enable them
+#     in your own configuration.
+#   - The debug exporter logs one summary line per batch (verbosity: basic) instead of
+#     every span, metric and log record (detailed), so telemetry payloads are not copied
+#     into the container log.
+#   - memory_limiter is the first processor in every pipeline, as upstream's
+#     memorylimiterprocessor README recommends for containers (limit_percentage).
+#
+# The OTLP receiver has NO authentication in this distribution: the core build contains no
+# authenticator extension, so anyone who can reach 4317/4318 can send telemetry. Publish
+# them on localhost or a private network only, or require client certificates
+# (tls: cert_file / key_file / client_ca_file under each protocol) in your own config.
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13133
+  pprof:
+    endpoint: 127.0.0.1:1777
+  zpages:
+    endpoint: 127.0.0.1:55679
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 80
+    spike_limit_percentage: 20
+  batch:
+
+exporters:
+  debug:
+    verbosity: basic
+
+service:
+  telemetry:
+    metrics:
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: '127.0.0.1'
+                port: 8888
+                without_scope_info: true
+                without_type_suffix: true
+                without_units: true
+                with_resource_constant_labels:
+                  included: [ ]
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [debug]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [debug]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [debug]

@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "otelcol",
+  "repo": "https://github.com/open-telemetry/opentelemetry-collector-releases",
+  "ref": "v0.165.0",
+  "commit": "b9425f263115f328bc3bd4e65b825101b499f144",
+  "tree_listing_sha256": "b557a9d720177cf7dddb0127a892960b854e2363a6898f4213f1e2f61f20e0b8",
+  "file_count": 181
+}

@@ -1,0 +1,295 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "otelcol",
+ "tag": "v0.165.0-CE-ubuntu24.04-r3",
+ "tarball": "ReadyStack-otelcol-v0.165.0-CE-ubuntu24.04-r3.tar.gz",
+ "tarball_sha256": "6c30c945c3cd26ab7911329011f2388520ae560bc6bddf3d46884633afaf2001",
+ "kit_root": "v0.165.0-CE-ubuntu24.04-r3",
+ "generated_at": "2026-11-22T17:51:11Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/open-telemetry/opentelemetry-collector-releases",
+   "ref": "v0.165.0",
+   "commit": "b9425f263115f328bc3bd4e65b825101b499f144",
+   "url": "https://github.com/open-telemetry/opentelemetry-collector-releases/tree/b9425f263115f328bc3bd4e65b825101b499f144",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/open-telemetry/opentelemetry-collector-releases",
+    "ref": "v0.165.0"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel/releases/download/v1.5.1/chisel_v1.5.1_linux_amd64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel-releases/archive/f2600d3aa90123db6d44bb1441a99afc8b5847d9.tar.gz"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "golang:1.26.11-bookworm@sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0",
+    "image": "golang:1.26.11-bookworm",
+    "digest": "sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0"
+   },
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+   "builder_images": [
+    "golang:1.26.11-bookworm@sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0"
+   ]
+  },
+  "build_method": "source-rebuild-go",
+  "source_date_epoch": 1795161176,
+  "source_date_epoch_utc": "2026-11-20T07:52:56Z",
+  "target": {
+   "image_manifest_digest": "sha256:c1d25f30f0f551220ae488008fdc7284f16a56dc427211d6c11bf7664890f48a",
+   "config_digest": "sha256:947ae6e35fda8561f8aca0035af68774b12e12e9781edab126afa1cd9850067f",
+   "image": "readystack/otelcol:v0.165.0-CE-ubuntu24.04-r3"
+  },
+  "checksummed_files": 18888
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 264,
+   "sha256": "4b98a700d33a9f62c6299744be2f31889777ec9f3b1cf9150d02a25daa1a297d",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 3542455,
+   "sha256": "5bebe5a793dc8e6df69be2c3d8d81368ab4eba516e5ca627a1bb205541b09ea7",
+   "lines": 18888,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 4389,
+   "sha256": "7eeaa2770ecb15f12a8e35a3de95f2ce974d5bf8e3916a1925b3c106f02cd1b1",
+   "lines": 53,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 4389,
+   "sha256": "7eeaa2770ecb15f12a8e35a3de95f2ce974d5bf8e3916a1925b3c106f02cd1b1",
+   "lines": 53,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 4389,
+   "sha256": "7eeaa2770ecb15f12a8e35a3de95f2ce974d5bf8e3916a1925b3c106f02cd1b1",
+   "lines": 53,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 6181,
+   "sha256": "8b14d7f596506e5c86adc81db6589233d0d5ee86677221c05ec27e82bf154287",
+   "lines": 51,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 2662113,
+   "sha256": "be3f85226fd2b6e4afeb53ebd8d06258eb289f116aebccd6f7e4c1bd7c4b4306",
+   "lines": 21862,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 2258101,
+   "sha256": "49fb17e5281fe6ebe0bdb70da58058f9f9622a9bcc226b0328830a740cc90999",
+   "lines": 18890,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3306,
+   "sha256": "512242d40ad69ab444b10b67de8dfb5c4f7e3348e882f73b4f994b34952778c3",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "3a86919b0206785c0418901bc37976ced3ca8fe06b6b45f11331a7f7915446a6",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 278,
+   "sha256": "bc8742be5eebc5cb51339abc46883035ae7fcea11440f1fed873a95c21d9d0a8",
+   "lines": 6,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "config.yaml",
+   "size": 2513,
+   "sha256": "ea455c174addd4ef9fa0705e95930ec1a752419658e370afcd034631ca0608c2",
+   "lines": 75,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2678,
+   "sha256": "ba4f40664dd9a59007400d5ea91cc8f1f871b3c2ec0637025c075e83d76e3a93",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6133,
+   "sha256": "7fcd60b30fef379b99d9b0e6ab776b364478a1469c31023f0eea3cf575866dcc",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2054,
+   "sha256": "9a2530cba00dcb96ee76a0bc7facb984cc22700c9ab3724a4b225eaff2d06a4b",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 73,
+   "sha256": "e99387157db2fc9ef95ea67d46fb73694fe5fe6d66e0facecf1603a816c4fa66",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 6191,
+   "sha256": "f1ed9157eb5b3efa801040f8717cfa3c1f92688f3213a8a325139409c3d00e77",
+   "lines": 71,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 681,
+   "sha256": "216d4e5ea074839be49628f5d26c6919088df142c3425654edad1b9fd67fce5b",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 8068,
+   "sha256": "7bb1c802cf5e4d70aab6ca57dad6d9ed024b45ab08da985247164db306ba0b5f",
+   "lines": 188,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 338,
+   "sha256": "e570adfdf814c385cd37f81a8de1e13cbdc2380e5d310a2d8d8a16a92404d768",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 346,
+   "sha256": "647374b10b9c4876e489015568ec8f51da5312d8e221f6019a62aeeb0acdc7e5",
+   "lines": 10,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 3502,
+   "sha256": "ff96fe5cefc7e53216e29a2a161f1582583b663d0b1dc2f61f3ddd70fcd99732",
+   "lines": 104,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1433,
+   "sha256": "5729b5323e2496e2d9749e1c462127790a7e20060203da9f00074bc3c86a2b15",
+   "lines": 38,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.go",
+   "size": 3179,
+   "sha256": "a8bdee17a3581f8685f58d7a8ccb7524153829f70b19c9d75e323c589de2ad8f",
+   "lines": 117,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.mod",
+   "size": 40,
+   "sha256": "a480b79acf98e4275725058076ad2a8684a2eee06c27f4337b75339c198ca92d",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 16,
+   "bytes": 326685578
+  },
+  "docs": {
+   "files": 240,
+   "bytes": 3615400
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 18604,
+   "bytes": 238776394
+  }
+ },
+ "redacted_files": 0
+}

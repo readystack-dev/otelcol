@@ -1,0 +1,6 @@
+image_manifest_digest=sha256:c1d25f30f0f551220ae488008fdc7284f16a56dc427211d6c11bf7664890f48a
+config_digest=sha256:947ae6e35fda8561f8aca0035af68774b12e12e9781edab126afa1cd9850067f
+tag=readystack/otelcol:v0.165.0-CE-ubuntu24.04-r3
+probe_port=13133
+probe_path=/
+probe_timeout=180
